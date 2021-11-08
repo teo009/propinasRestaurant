@@ -4,17 +4,21 @@ import { View, Text, TextInput, StyleSheet, TouchableOpacity } from 'react-nativ
 const Body = () => {
 
     const [cuenta, setCuenta] = useState('')
-    const [resultado, setresultado] = useState()
+    const [resultado, setResultado] = useState(0)
 
-    const handleCalcularPropina = () => {
-        console.log(cuenta)
+    const calcularPropina5 = () => {
         const result = 5 * parseInt(cuenta)
-        setresultado(result)
+        setResultado(result)
+    }
+    const calcularPropina10 = () => {
+        const result = 10 * parseInt(cuenta)
+        setResultado(result)
     }
 
-    useEffect(() => {
-        handleCalcularPropina()
-    }, [cuenta])
+    //This is little comment
+    //useEffect(() => {
+    //    handleCalcularPropina()
+    //}, [cuenta])
 
     return (
         <View
@@ -25,13 +29,15 @@ const Body = () => {
                 style={styles.input}
                 onChangeText={setCuenta}
             />
+
             <TouchableOpacity
-                onPress={() => {}}
+                onPress={calcularPropina5}
             >
                 <Text>5%</Text>
             </TouchableOpacity>
+
             <TouchableOpacity
-                onPress={() => {}}
+                onPress={calcularPropina10}
             >
                 <Text>10%</Text>
             </TouchableOpacity>
