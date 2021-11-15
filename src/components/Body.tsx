@@ -172,7 +172,7 @@ const Body = () => {
                     onPress={() => resetData()}
                     style={styles.botonReset}
                 >
-                    <Text style={styles.botonReset}>Reset</Text>
+                    <Text style={styles.textoBotonReset}>Reset</Text>
                 </TouchableOpacity>
             </ScrollView>
         </View>
@@ -190,26 +190,110 @@ const styles = StyleSheet.create({
         borderTopRightRadius: 20,
         borderTopLeftRadius: 20,
         flex: 1,
+        backgroundColor: '#FFFFFF',
     },
     inputs: {
-        borderColor: 'black',
-        borderWidth: 2,
-        borderRadius: 10,
-        paddingVertical: 1,
-        paddingHorizontal: 10,
+        backgroundColor: '#F2F8FB',
+        borderRadius: 8,
+        padding: 10,
+        textAlign: 'right',
+        fontSize: 22,
+        fontWeight: 'bold',
+        color: '#004445'
     },
-    headerText: {},
-    inputaddon: {},
-    boxSelectTip: {},
-    buttonsContainer: {},
-    botonPorcentajeActive: {},
-    botonPorcentaje: {},
-    textoBotonPorcentajeActivo: {},
-    textoBotonPorcentaje: {},
-    boxResumen: {},
-    filaResumen: {},
-    textWhiteHeaderText: {},
-    textGrayResumen: {},
-    textMontoResumen: {},
-    botonReset: {},
+    headerText: {
+        fontWeight: 'bold',
+        fontSize: 18,
+        color: '#687778',
+        borderWidth: 0,
+        marginBottom: 5,
+        marginTop: 5,
+    },
+    inputaddon: {
+        position: 'absolute',
+        color: '#A2BABB',
+        top: 10,
+        left: 10,
+        zIndex: 2,
+        fontSize: 22,
+    },
+    boxSelectTip: {
+        marginTop: 25,
+    },
+    buttonsContainer: {
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignContent: 'space-between',
+        flexWrap: 'wrap',
+    },
+    botonPorcentajeActive: {
+        backgroundColor: '#00C1AC',
+        borderRadius: 8,
+        width: '48%',
+        paddingVertical: 7,
+        marginTop: 10,
+    },
+    botonPorcentaje: {
+        backgroundColor: '#00494C',
+        borderRadius: 8,
+        width: '48%',
+        paddingVertical: 7,
+        marginTop: 10,
+    },
+    textoBotonPorcentajeActivo: {
+        color: '#004B4F',
+        fontWeight: 'bold',
+        fontSize: 35,
+        textAlign: 'center',
+    },
+    textoBotonPorcentaje: {
+        color: '#F5FBFC',
+        fontWeight: 'bold',
+        fontSize: 35,
+        textAlign: 'center',
+    },
+    boxResumen: {
+        backgroundColor: '#00494C',
+        borderRadius: 8,
+        marginTop: 25,
+        padding: 20,
+    },
+    filaResumen: {
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        marginBottom: 20,
+    },
+    textWhiteHeaderText: {
+        color: '#EDFEFE',
+        fontWeight: 'bold',
+        fontSize: 22,
+        borderWidth: 0,
+    },
+    textGrayResumen: {
+        color: '#4F8B8E',
+        fontWeight: 'bold',
+        fontSize: 14,
+        borderWidth: 0,
+    },
+    textMontoResumen: {
+        color: '#00BEAD',
+        fontWeight: 'bold',
+        fontSize: 40,
+        borderWidth: 0,
+    },
+    botonReset: {
+        backgroundColor: '#00C1AC',
+        borderRadius: 8,
+        width: '100%',
+        paddingVertical: 7,
+        marginTop: 1,
+    },
+    textoBotonReset: {
+        color: '#00514E',
+        fontWeight: 'bold',
+        fontSize: 35,
+        textAlign: 'center',
+    },
 })
