@@ -4,20 +4,20 @@ import { FontAwesome } from '@expo/vector-icons'
 
 const Body = () => {
 
+    const [propina, setPropina] = useState<string>('4.27')
+    const [totalPersona, setTotalPersona] = useState<string>('32.79')
     const [total, setTotal] = useState<number>(145.66)
-    const [propina, setPropina] = useState('4.27')
     const [personas, setPersonas] = useState<number>(5)
-    const [porcentaje, setPorcentaje] = useState(15)
-    const [totalPersona, setTotalPersona] = useState('32.79')
+    const [porcentaje, setPorcentaje] = useState<number>(15)
 
     const calcularPropina = () => {
-        let _propinaTotal = (total * (porcentaje / 100))
-        let _propinaPorPersona = _propinaTotal / personas
+        let _propinaTotal: number = (total * (porcentaje / 100))
+        let _propinaPorPersona: number = _propinaTotal / personas
         if (isNaN(_propinaPorPersona) || _propinaPorPersona === Infinity) {
             _propinaPorPersona = 0
         }
         setPropina(_propinaPorPersona.toFixed(2).toString())
-        let _total = total +_propinaTotal
+        let _total: number = total +_propinaTotal
         setTotalPersona(_propinaTotal.toFixed(2).toString())
     }
 
