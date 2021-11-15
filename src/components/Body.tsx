@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { View, Text, TextInput, StyleSheet, TouchableOpacity, ScrollView } from 'react-native'
+import { FontAwesome } from '@expo/vector-icons'
 
 const Body = () => {
 
@@ -14,13 +15,6 @@ const Body = () => {
     const resetData = () => {
 
     }
-
-    //<FontAwesome 
-    //    style={styles.inputaddon}
-    //    name="user"
-    //    size={32}
-    //    color="black"
-    ///>
 
     return (
         <View style={styles.container}>
@@ -142,6 +136,11 @@ const Body = () => {
                         Número de personas
                     </Text>
                     <View>
+                        <FontAwesome 
+                            style={styles.inputaddon}
+                            name="users"
+                            size={32}
+                        />
                         <TextInput 
                             style={styles.inputs}
                             keyboardType='numeric'
