@@ -4,7 +4,10 @@ import Body from './src/components/Body';
 
 export default function App() {
   return (
-    <View style={styles.container}>
+    <View style={styles.fondoApp}>
+      <View style={styles.container}>
+        <Text style={styles.text}>CUENTA PROPINAS</Text>
+      </View>
       <Body />
     </View>
   );
@@ -12,9 +15,17 @@ export default function App() {
 
 const styles = StyleSheet.create({
   container: {
+    marginTop: 27,
+    paddingVertical: 40,
+  },
+  fondoApp: {
+    backgroundColor: '#C0E3E6',
     flex: 1,
-    backgroundColor: '#fff',
     alignItems: 'center',
-    justifyContent: 'center',
+  },
+  text: {
+    fontSize: 35,
+    fontWeight: 'bold',
+    color: 'hsl(183, 100%, 25%)'
   },
 });

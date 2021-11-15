@@ -4,17 +4,28 @@ import { FontAwesome } from '@expo/vector-icons'
 
 const Body = () => {
 
-    const [total, setTotal] = useState('100.00')
-    const [cuenta, setCuenta] = useState('')
-    const [resultado, setResultado] = useState(0)
-    const [propina, setPropina] = useState('4.50')
-    const [personas, setPersonas] = useState('5')
-    const [porcentaje, setPorcentaje] = useState('15')
-    const [totalPersona, setTotalPersona] = useState('32.70')
+    const [total, setTotal] = useState<number>(145.66)
+    const [propina, setPropina] = useState('4.27')
+    const [personas, setPersonas] = useState<number>(5)
+    const [porcentaje, setPorcentaje] = useState(15)
+    const [totalPersona, setTotalPersona] = useState('32.79')
+
+    const calcularPropina = () => {
+        let _propinaTotal = (total * (porcentaje / 100))
+        let _propinaPorPersona = _propinaTotal / personas
+        if (isNaN(_propinaPorPersona) || _propinaPorPersona === Infinity) {
+            _propinaPorPersona = 0
+        }
+        setPropina(_propinaPorPersona.toFixed(2).toString())
+        let _total = total +_propinaTotal
+        setTotalPersona(_propinaTotal.toFixed(2).toString())
+    }
 
     const resetData = () => {
-
+        setTotal(0)
     }
+
+    useEffect(calcularPropina, [total, personas, porcentaje])
 
     return (
         <View style={styles.container}>
@@ -26,8 +37,8 @@ const Body = () => {
                     <TextInput 
                         style={styles.inputs}
                         keyboardType='numeric'
-                        defaultValue={total}
-                        onChangeText={setTotal}
+                        defaultValue={total.toString()}
+                        onChangeText={() => setTotal}
                     />
                 </View>
                 <View style={styles.boxSelectTip}>
@@ -38,14 +49,14 @@ const Body = () => {
                         <TouchableOpacity 
                             onPress={() => setPorcentaje(5)}
                             style={
-                                porcentaje == '5'
+                                porcentaje == 5
                                     ? styles.botonPorcentajeActive
                                     : styles.botonPorcentaje
                             }
                         >
                             <Text
                                 style={
-                                    porcentaje == '5'
+                                    porcentaje == 5
                                         ? styles.textoBotonPorcentajeActivo
                                         : styles.textoBotonPorcentaje
                                 }
@@ -56,14 +67,14 @@ const Body = () => {
                         <TouchableOpacity
                             onPress={() => setPorcentaje(10)}
                             style={
-                                porcentaje == '10'
+                                porcentaje == 10
                                     ? styles.botonPorcentajeActive
                                     : styles.botonPorcentaje
                             }
                         >
                             <Text
                                 style={
-                                    porcentaje == '10'
+                                    porcentaje == 10
                                         ? styles.textoBotonPorcentajeActivo
                                         : styles.textoBotonPorcentaje
                                 }
@@ -74,14 +85,14 @@ const Body = () => {
                         <TouchableOpacity
                             onPress={() => setPorcentaje(15)}
                             style={
-                                porcentaje == '15'
+                                porcentaje == 15
                                     ? styles.botonPorcentajeActive
                                     : styles.botonPorcentaje
                             }
                         >
                             <Text
                                 style={
-                                    porcentaje == '15'
+                                    porcentaje == 15
                                         ? styles.textoBotonPorcentajeActivo
                                         : styles.textoBotonPorcentaje
                                 }
@@ -92,14 +103,14 @@ const Body = () => {
                         <TouchableOpacity
                             onPress={() => setPorcentaje(25)}
                             style={
-                                porcentaje == '25'
+                                porcentaje == 25
                                     ? styles.botonPorcentajeActive
                                     : styles.botonPorcentaje
                             }
                         >
                             <Text
                                 style={
-                                    porcentaje == '25'
+                                    porcentaje == 25
                                         ? styles.textoBotonPorcentajeActivo
                                         : styles.textoBotonPorcentaje
                                 }
@@ -110,14 +121,14 @@ const Body = () => {
                         <TouchableOpacity
                             onPress={() => setPorcentaje(50)}
                             style={
-                                porcentaje == '50'
+                                porcentaje == 50
                                     ? styles.botonPorcentajeActive
                                     : styles.botonPorcentaje
                             }
                         >
                             <Text
                                 style={
-                                    porcentaje == '50'
+                                    porcentaje == 50
                                         ? styles.textoBotonPorcentajeActivo
                                         : styles.textoBotonPorcentaje
                                 }
@@ -144,8 +155,8 @@ const Body = () => {
                         <TextInput 
                             style={styles.inputs}
                             keyboardType='numeric'
-                            defaultValue={personas}
-                            onChangeText={setPersonas}
+                            defaultValue={personas.toString()}
+                            onChangeText={() => setPersonas}
                         />
                     </View>
                 </View>
